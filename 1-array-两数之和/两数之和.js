@@ -16,10 +16,10 @@ var twoSum = function(nums, target) {
   for(var i = 0; i < nums.length; i++){
       if(typeof(exist[target - nums[i]]) !== 'undefined'){ // 使用typeof比较准确
           ret.push(exist[target - nums[i]]);
-          ret.push(i + 1);
+          ret.push(i);
       }
       
-      exist[nums[i]] = i + 1;
+      exist[nums[i]] = i;
   }
   
   return ret
