@@ -34,12 +34,16 @@ var reverseList = function(head) {
   // }
   // return reverse
 
+  // 后续遍历
   if ( head.next === null) {
     return head
   }
 
+  // 第一次返回的最后一个节点，每次直接返回即可
   const res = reverseList(head.next)
   // 1->2->3->4->5->NULL
+  // 举例当前为4时，需要修改5指向4，4指向Null
+  // 举例当前为3时，需要修改4指向3，3指向Null
   head.next.next = head 
 
   head.next = null

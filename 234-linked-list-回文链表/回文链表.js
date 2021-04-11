@@ -16,7 +16,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// 递归
+// 递归，后序遍历
 // var isPalindrome = function(head) {
 //   front = head
 //   return recursiveCheck(head)
