@@ -1,4 +1,4 @@
-// https://www.nowcoder.com/practice/2baf799ea0594abd974d37139de27896
+
 // function quicksort (arr) {
 //   if (Array.isArray(arr) && arr.length > 1) {
 //     if (arr.length <= 1) return arr
