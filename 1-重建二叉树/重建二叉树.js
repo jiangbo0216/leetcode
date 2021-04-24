@@ -20,8 +20,8 @@ function reConstructBinaryTree(pre, vin)
       }
 
       let rootIndexInVin = vin.indexOf(pre[preStart]);
-      let leftLength = rootIndexInVin - vinStart;
-      let leftPreEnd = preStart + leftLength;
+      let leftLength = rootIndexInVin - vinStart; // 3 - 0 = 3
+      let leftPreEnd = preStart + leftLength; // 0 + 3 = 3
        
       if(leftLength > 0) {
           node.left = rebuild(preStart + 1,leftPreEnd,vinStart,rootIndexInVin - 1);
