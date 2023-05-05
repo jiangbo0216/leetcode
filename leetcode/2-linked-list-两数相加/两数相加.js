@@ -13,6 +13,7 @@
  * }
  */
 /**
+ * tag: [link-list]
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
@@ -21,34 +22,39 @@ var addTwoNumbers = function(l1, l2) {
   // 运行状态包括指针和进位情况
   let carry = 0
 
-  let p1 = l1, p2 = l2
-
   // 结果
-  let result = new ListNode()
-  result.next = new ListNode()
-  let resultP = result
+  let head = tail = new ListNode()
   
-  while(p1 || p2 || carry) {
-    
-    resultP = resultP.next
-    let sum = (p1 && p1.val || 0) + (p2 && p2.val || 0) + carry
+  while(l1 || l2) {
+    let sum = (l1 && l1.val || 0) + (l2 && l2.val || 0) + carry
     if (sum >= 10) {
       sum -= 10
       carry = 1
     } else {
       carry = 0
     }
-    resultP.val = sum
+    tail.val = sum
     
-    p1 = p1 && p1.next
-    p2 = p2 && p2.next
+    l1 = l1 && l1.next
+    l2 = l2 && l2.next
 
-    if (p1 || p2 || carry) {
-      resultP.next = new ListNode()
+    if (l1 || l2) {
+      tail.next = new ListNode()
+      tail = tail.next
     }
   }
 
-  return result.next
+  if (carry) {
+    tail.next = new ListNode(carry)
+  }
+
+  return head
 };
 // @lc code=end
 
+
+
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}

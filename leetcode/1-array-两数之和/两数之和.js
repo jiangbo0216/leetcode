@@ -6,6 +6,7 @@
 
 // @lc code=start
 /**
+ * tag: [hash-table]
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}

@@ -30,6 +30,9 @@
 
 // The typical engineering design problems include a knapsack problem, bin-packing problem, traveling salesman problem, vehicle routing problem, machine scheduling order and balance, create yuan design issues, equipment, location and layout.
 
+
+// 如何让这个题目变得复杂：车的载重不一样，或者一个车可以坐多个人
+
 export function binPacking([threshold, count]: [number, number], array: number[]) {
   // 这个方法会直接修改数组
   array = array.sort()
@@ -37,21 +40,34 @@ export function binPacking([threshold, count]: [number, number], array: number[]
   let box = 0
 
   // 贪心：每次装入最接近 threshold 的 items
-  // 双指针
-  let j = count
+  // 双指针: 一个指针用来定位最大的值，一个指针用来寻找最合适的 compliment
+  let j = count - 1
   let i = 0
 
-  for (; j > i; j++) {
-    const max = array[j];
-    const min = array[i]
-    
-    if (min + max <= threshold) {
-      ++i
+  const solves = new Array(count).fill(1)
+
+  function findBestSuiteMin (j: number, remain: number) {
+    for (let i = j - 1; i > -1; i--) {
+      if (array[i] <= remain && solves[i] !== 0) {
+        return i
+      }
     }
-    box += 1
-    --j
+    return -1
   }
-  if (j > i) {
+
+  for (; j > -1;) {
+    if (solves[j] === 0) {
+      --j
+      continue
+    }
+    const max = array[j];
+    const minIdx = findBestSuiteMin(j, threshold - max)
+
+    if (minIdx > -1) {
+      solves[minIdx] = 0
+    }
+    solves[j] = 0
+    --j
     box += 1
   }
 

@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=2 lang=javascript
+ * @lc app=leetcode.cn id=19 lang=javascript
  *
- * [2] 两数相加
+ * [19] 删除链表的倒数第 N 个结点
  */
 
 // @lc code=start
@@ -13,11 +13,12 @@
  * }
  */
 /**
- * @param {ListNode} l1
- * @param {ListNode} l2
+ * tag: [two-pointer]
+ * @param {ListNode} head
+ * @param {number} n
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var removeNthFromEnd = function(head, n) {
 
 };
 // @lc code=end
