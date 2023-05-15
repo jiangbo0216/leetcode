@@ -9,6 +9,29 @@
  * @param {string} s
  * @return {number}
  */
+// var lengthOfLongestSubstring = function(s) {
+//   const map = new Map()
+
+//   let left = 0
+//   const len = s.length
+
+//   let num = 0
+
+//   // 这里使用 map 记录 char 的位置
+//   for (let i = 0; i < len; i++) {
+    
+//     if (map.has(s[i]) && map.get(s[i]) >= left) {
+//       left = map.get(s[i]) + 1
+//     }
+//     num = Math.max(i - left + 1, num)
+//     map.set(s[i], i)
+//   }
+
+//   return num
+
+// };
+
+
 var lengthOfLongestSubstring = function(s) {
   const set = new Set()
 
@@ -32,3 +55,4 @@ var lengthOfLongestSubstring = function(s) {
 };
 // @lc code=end
 
+lengthOfLongestSubstring('abba')
