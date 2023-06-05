@@ -1,3 +1,21 @@
 {
-  "liveServer.settings.port": 5504
+  "prettier.requireConfig": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  // 需要安装 autopep8
+  "python.formatting.provider": "autopep8",
+  "python.linting.flake8Enabled": true,
+  "python.formatting.autopep8Args": [
+    // "--max-line-length",
+    // "60",
+    // "--experimental"
+  ]
 }
