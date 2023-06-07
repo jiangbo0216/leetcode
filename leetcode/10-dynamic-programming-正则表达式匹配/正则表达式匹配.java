@@ -4,8 +4,9 @@
  * [10] 正则表达式匹配
  */
 
-p[j]为 *，s[i] == p[j-1]时 f[i][j] = f[i-1][j]（需要*参与匹配） || f[i][j-2] （不需要*参与匹配）
-s[i] != p[j-1]时 f[i][j] =  f[i][j-2]
+// p[j]为 *
+// s[i] == p[j-1]时 f[i][j] = f[i-1][j]（需要*参与匹配） || f[i][j-2] （不需要*参与匹配）
+// s[i] != p[j-1]时 f[i][j] =  f[i][j-2]
 // @lc code=start
 class Solution {
     public boolean isMatch(String s, String p) {
@@ -19,6 +20,7 @@ class Solution {
                 if (p.charAt(j - 1) == '*') {
                     f[i][j] = f[i][j - 2];
                     if (matches(s, p, i, j - 1)) {
+                        // f[i][j] || 这个是为了让 f[i][j - 2] 参与进来
                         f[i][j] = f[i][j] || f[i - 1][j];
                     }
                 } else {
